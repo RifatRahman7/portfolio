@@ -20,7 +20,7 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" className="relative py-20 px-4 bg-slate-950 text-slate-100 overflow-hidden roboto">
+    <section id="education" className="relative py-10 px-4 bg-slate-950 text-slate-100 overflow-hidden roboto">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export default function Education() {
         </p>
       </motion.div>
 
-      <div className="mx-auto max-w-3xl grid gap-8 md:grid-cols-2">
+      <div className="mx-auto max-w-3xl grid gap-10 md:grid-cols-2">
         {education.map((edu, idx) => (
           <motion.div
             key={edu.title}

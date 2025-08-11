@@ -5,12 +5,22 @@ import { FiDownload } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navLinks = [
-    { label: 'Home', to: '/', icon: <FaHome className="inline-block mr-2" /> },
-    { label: 'About', to: '/about', icon: <FaUser className="inline-block mr-2" /> },
-     { label: 'Skills', to: '/skills', icon: <FaTools className="inline-block mr-2" /> }, 
+    { label: 'Home', to: 'intro', icon: <FaHome className="inline-block mr-2" /> },
+    { label: 'About', to: 'about', icon: <FaUser className="inline-block mr-2" /> },
+    { label: 'Skills', to: 'skills', icon: <FaTools className="inline-block mr-2" /> },
+    { label: 'Education', to: 'education', icon: <FaUser className="inline-block mr-2" /> },
     { label: 'Projects', to: '/projects', icon: <FaProjectDiagram className="inline-block mr-2" /> },
     { label: 'Contact', to: '/contact', icon: <FaEnvelope className="inline-block mr-2" /> },
 ]
+
+function scrollToSection(id) {
+    const el = document.getElementById(id)
+    if (el) {
+        const yOffset = -90
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset
+        window.scrollTo({ top: y, behavior: 'smooth' })
+    }
+}
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -22,6 +32,8 @@ export default function Navbar() {
         document.body.style.overflow = menuOpen ? 'hidden' : ''
         return () => (document.body.style.overflow = '')
     }, [menuOpen])
+
+    const isSection = (to) => ['intro', 'about', 'skills', 'education'].includes(to)
 
     return (
         <nav className="fixed top-4 inset-x-0 z-50 px-4">
@@ -42,11 +54,12 @@ export default function Navbar() {
                         <div className="hidden md:flex items-center gap-1 rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">
                             {navLinks.map((item) => {
                                 const active = pathname === item.to
-                                return (
-                                    <Link
+                                return isSection(item.to) ? (
+                                    <button
                                         key={item.to}
-                                        to={item.to}
-                                        className="relative group px-3 py-1.5 text-sm font-medium text-slate-200 hover:text-white transition flex items-center"
+                                        onClick={() => scrollToSection(item.to)}
+                                        className="relative group px-3 py-1.5 text-sm font-medium text-slate-200 hover:text-white transition flex items-center bg-transparent border-none outline-none cursor-pointer"
+                                        style={{ background: 'none' }}
                                     >
                                         {active && (
                                             <motion.span
@@ -58,7 +71,23 @@ export default function Navbar() {
                                         {item.icon}
                                         <span className="relative z-10">{item.label}</span>
                                         <span className="pointer-events-none absolute left-0 right-0 bottom-0 h-[2px] bg-gradient-to-r from-indigo-400 via-violet-500 to-rose-400 scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
-
+                                    </button>
+                                ) : (
+                                    <Link
+                                        key={item.to}
+                                        to={item.to}
+                                        className="relative group px-3 py-1.5 text-sm font-medium text-slate-200 hover:text-white transition flex items-center cursor-pointer"
+                                    >
+                                        {active && (
+                                            <motion.span
+                                                layoutId="active-pill"
+                                                className="absolute inset-0 -z-10 rounded-full bg-white/10"
+                                                transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                                            />
+                                        )}
+                                        {item.icon}
+                                        <span className="relative z-10">{item.label}</span>
+                                        <span className="pointer-events-none absolute left-0 right-0 bottom-0 h-[2px] bg-gradient-to-r from-indigo-400 via-violet-500 to-rose-400 scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
                                     </Link>
                                 )
                             })}
@@ -104,14 +133,28 @@ export default function Navbar() {
                                                     animate={{ opacity: 1, y: 0 }}
                                                     transition={{ delay: 0.04 * idx }}
                                                 >
-                                                    <Link
-                                                        to={item.to}
-                                                        onClick={() => setMenuOpen(false)}
-                                                        className="block rounded-xl px-4 py-3 text-base font-medium text-slate-100 hover:text-white hover:bg-white/10 transition flex items-center justify-center"
-                                                    >
-                                                        {item.icon}
-                                                        {item.label}
-                                                    </Link>
+                                                    {isSection(item.to) ? (
+                                                        <button
+                                                            onClick={() => {
+                                                                scrollToSection(item.to)
+                                                                setMenuOpen(false)
+                                                            }}
+                                                            className="block rounded-xl px-4 py-3 text-base font-medium text-slate-100 hover:text-white hover:bg-white/10 transition flex items-center justify-center w-full bg-transparent border-none outline-none cursor-pointer"
+                                                            style={{ background: 'none' }}
+                                                        >
+                                                            {item.icon}
+                                                            {item.label}
+                                                        </button>
+                                                    ) : (
+                                                        <Link
+                                                            to={item.to}
+                                                            onClick={() => setMenuOpen(false)}
+                                                            className="block rounded-xl px-4 py-3 text-base font-medium text-slate-100 hover:text-white hover:bg-white/10 transition flex items-center justify-center cursor-pointer"
+                                                        >
+                                                            {item.icon}
+                                                            {item.label}
+                                                        </Link>
+                                                    )}
                                                 </motion.div>
                                             ))}
                                             <a
