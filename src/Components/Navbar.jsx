@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router'
-import { FaBars, FaTimes, FaHome, FaUser, FaProjectDiagram, FaEnvelope } from 'react-icons/fa'
+import { FaBars, FaTimes, FaHome, FaUser, FaProjectDiagram, FaEnvelope, FaTools } from 'react-icons/fa'
 import { FiDownload } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navLinks = [
     { label: 'Home', to: '/', icon: <FaHome className="inline-block mr-2" /> },
     { label: 'About', to: '/about', icon: <FaUser className="inline-block mr-2" /> },
+     { label: 'Skills', to: '/skills', icon: <FaTools className="inline-block mr-2" /> }, 
     { label: 'Projects', to: '/projects', icon: <FaProjectDiagram className="inline-block mr-2" /> },
     { label: 'Contact', to: '/contact', icon: <FaEnvelope className="inline-block mr-2" /> },
 ]
