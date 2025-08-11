@@ -10,13 +10,13 @@ const navLinks = [
     { label: 'Skills', to: 'skills', icon: <FaTools className="inline-block mr-2" /> },
     { label: 'Education', to: 'education', icon: <FaUser className="inline-block mr-2" /> },
     { label: 'Projects', to: '/projects', icon: <FaProjectDiagram className="inline-block mr-2" /> },
-    { label: 'Contact', to: '/contact', icon: <FaEnvelope className="inline-block mr-2" /> },
+    { label: 'Contact', to: 'contact', icon: <FaEnvelope className="inline-block mr-2" /> }, // Now scrolls to section
 ]
 
 function scrollToSection(id) {
     const el = document.getElementById(id)
     if (el) {
-        const yOffset = -90
+        const yOffset = -90 // adjust this if your navbar height is different
         const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset
         window.scrollTo({ top: y, behavior: 'smooth' })
     }
@@ -33,7 +33,8 @@ export default function Navbar() {
         return () => (document.body.style.overflow = '')
     }, [menuOpen])
 
-    const isSection = (to) => ['intro', 'about', 'skills', 'education'].includes(to)
+    // Helper to check if nav item is a section
+    const isSection = (to) => ['intro', 'about', 'skills', 'education', 'contact'].includes(to)
 
     return (
         <nav className="fixed top-4 inset-x-0 z-50 px-4">
