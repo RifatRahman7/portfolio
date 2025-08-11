@@ -1,5 +1,29 @@
 import { motion } from 'framer-motion'
+import { FaGithub, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa'
+
 const PHOTO_URL = 'https://iili.io/FQLWpwJ.jpg'
+
+// Replace these with your actual profile URLs
+const SOCIALS = [
+    {
+        icon: <FaGithub />,
+        label: 'GitHub',
+        url: 'https://github.com/RifatRahman7',
+        color: 'hover:text-white',
+    },
+    {
+        icon: <FaLinkedin />,
+        label: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/rifat-rahman7/',
+        color: 'hover:text-blue-400',
+    },
+    {
+        icon: <FaFacebook />,
+        label: 'Facebook',
+        url: 'https://facebook.com/rifatdcian',
+        color: 'hover:text-blue-400',
+    },
+]
 
 export default function Intro() {
     return (
@@ -34,10 +58,27 @@ export default function Intro() {
 
                         {/* Subtext */}
                         <p className="mt-3 text-slate-300 text-lg max-w-xl mx-auto md:mx-0">
-                            I specialize in frontend development with expertise in HTML, CSS, JavaScript, React, and Tailwind CSS.
-                            I have also completed MERN stack development, giving me hands-on experience with MongoDB, Express.js, and Node.js for building full-stack web applications.
+                            Skilled in frontend development with HTML, CSS, JavaScript, React, and Tailwind CSS.
+                            Experienced in the MERN stack for building robust full-stack web applications.
+
+
                         </p>
 
+                        {/* Social Links */}
+                        <div className="mt-7 flex flex-wrap justify-center md:justify-start gap-4">
+                            {SOCIALS.map((s, i) => (
+                                <a
+                                    key={s.label}
+                                    href={s.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={s.label}
+                                    className={`text-2xl p-2 rounded-full bg-white/10 hover:bg-gradient-to-tr from-indigo-500 via-violet-500 to-rose-500 transition ${s.color} shadow hover:scale-110`}
+                                >
+                                    {s.icon}
+                                </a>
+                            ))}
+                        </div>
                     </motion.div>
 
                     {/* Photo */}
