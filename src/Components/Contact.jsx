@@ -55,8 +55,7 @@ export default function Contact() {
             <ContactItem
               href="https://wa.me/8801742025100"
               icon={<FaWhatsapp />}
-              label="WhatsApp"
-              sublabel="+8801742025100"
+              label="+8801742025100"
               color="emerald"
               target="_blank"
             />
