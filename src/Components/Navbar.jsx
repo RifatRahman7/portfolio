@@ -44,7 +44,7 @@ export default function Navbar() {
                             className="group w-11 h-11 overflow-hidden rounded-full ring-1 ring-white/15 hover:ring-white/30 transition-all duration-300"
                         >
                             <img
-                                src="https://i.ibb.co/SDjH2f75/R-logo.jpg"
+                                src="https://iili.io/FZayG3X.jpg"
                                 alt="Logo"
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             />
