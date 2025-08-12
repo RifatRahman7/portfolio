@@ -9,14 +9,14 @@ const navLinks = [
     { label: 'About', to: 'about', icon: <FaUser className="inline-block mr-2" /> },
     { label: 'Skills', to: 'skills', icon: <FaTools className="inline-block mr-2" /> },
     { label: 'Education', to: 'education', icon: <FaUser className="inline-block mr-2" /> },
-    { label: 'Projects', to: '/projects', icon: <FaProjectDiagram className="inline-block mr-2" /> },
-    { label: 'Contact', to: 'contact', icon: <FaEnvelope className="inline-block mr-2" /> }, // Now scrolls to section
+    { label: 'Projects', to: 'projects', icon: <FaProjectDiagram className="inline-block mr-2" /> },
+    { label: 'Contact', to: 'contact', icon: <FaEnvelope className="inline-block mr-2" /> },
 ]
 
 function scrollToSection(id) {
     const el = document.getElementById(id)
     if (el) {
-        const yOffset = -90 // adjust this if your navbar height is different
+        const yOffset = -90
         const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset
         window.scrollTo({ top: y, behavior: 'smooth' })
     }
@@ -32,9 +32,7 @@ export default function Navbar() {
         document.body.style.overflow = menuOpen ? 'hidden' : ''
         return () => (document.body.style.overflow = '')
     }, [menuOpen])
-
-    // Helper to check if nav item is a section
-    const isSection = (to) => ['intro', 'about', 'skills', 'education', 'contact'].includes(to)
+    const isSection = (to) => ['intro', 'about', 'skills', 'education', 'contact','projects'].includes(to)
 
     return (
         <nav className="fixed top-4 inset-x-0 z-50 px-4">

@@ -48,7 +48,7 @@ export default function Intro() {
 
                         {/* Name */}
                         <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                            Hi, I’m <span className="bg-gradient-to-r from-indigo-300 via-violet-300 to-rose-300 bg-clip-text text-transparent">Md Rifat Rahman</span>
+                            Hi, I’m <br /> <span className="bg-gradient-to-r from-indigo-300 via-violet-300 to-rose-300 bg-clip-text text-transparent">Md Rifat Rahman</span>
                         </h1>
 
                         {/* Tagline */}

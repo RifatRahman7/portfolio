@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router";
 import Home from "../Components/Home";
-import ErrorPage from "../Components/ErrorPage";
+import ProjectDetails from "../Components/ProjectDetails";
 import Root from "../LayOuts/Root";
-import About from "../Components/AboutMe";
+import ErrorPage from "../Components/ErrorPage";
+import Project from "../Components/Project";
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -12,11 +14,20 @@ const router = createBrowserRouter([
                 index: true,
                 element: <Home />,
             },
-        ]
+            {
+                path: "projects",
+                element: <Project />,
+            },
+            {
+                path: "projects/:id",
+                element: <ProjectDetails />,
+            },
+        ],
     },
     {
-        path: "/*",
-        element: <ErrorPage />
+        path: "*",
+        element: <ErrorPage />,
     },
 ]);
+
 export default router;
