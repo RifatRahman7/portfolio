@@ -6,6 +6,7 @@ import Skills from './Skills';
 import Education from './Education';
 import Contact from './Contact';
 import Projects from './Project';
+import ProjectDetails from './ProjectDetails';
 const Home = () => {
     return (
         <div>

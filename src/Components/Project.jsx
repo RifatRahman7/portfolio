@@ -55,14 +55,20 @@ const projects = [
 export default function Project() {
     const navigate = useNavigate();
 
+    const handleProjects = (idx) => {
+        navigate(`/projects/${idx}`);
+    }
+    const handleDetails = () => {
+        console.log("efgasdjy")
+    }
     return (
-        <section id="projects" className="relative py-20 px-4 bg-slate-950 text-slate-100 overflow-hidden">
+        <section id="projects" className="relative py-16 px-4 bg-slate-950 text-slate-100 overflow-hidden">
             <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, type: 'spring' }}
-                className="mb-12 text-center"
+                className="mb-10 text-center"
             >
                 <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-indigo-400 via-violet-400 to-rose-400 bg-clip-text text-transparent tracking-tight">
                     Projects
@@ -84,7 +90,7 @@ export default function Project() {
               group rounded-2xl p-0 border shadow-2xl
               bg-slate-900/80 border-white/10
               backdrop-blur-lg
-              hover:scale-[1.025] hover:shadow-3xl transition-all duration-300
+               hover:shadow-3xl transition-all duration-300
               relative flex flex-col
               before:absolute before:inset-0 before:rounded-2xl before:bg-white/5 before:opacity-0 group-hover:before:opacity-100 before:transition
             `}
@@ -115,16 +121,18 @@ export default function Project() {
                             <p className="text-slate-300 text-sm mb-4 line-clamp-3">{project.description}</p>
                             <div className="mt-auto">
                                 <button
-                                    onClick={() => navigate(`/projects/${idx}`)}
-                                    className="inline-block rounded-full cursor-pointer bg-gradient-to-r from-indigo-500 via-violet-500 to-rose-500 px-5 py-2 text-sm font-semibold text-white shadow-lg hover:shadow-rose-500/30 hover:-translate-y-0.5 hover:scale-105 transition"
+                                    onClick={() => handleProjects(idx)}
+                                    className="inline-block rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-rose-500 px-5 py-2 text-sm font-semibold text-white shadow-lg hover:shadow-rose-500/30 hover:-translate-y-0.5 hover:scale-105 transition cursor-pointer"
                                 >
                                     View Details
                                 </button>
+
                             </div>
                         </div>
                     </motion.div>
                 ))}
             </div>
+            
         </section>
     )
 }

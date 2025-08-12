@@ -57,15 +57,7 @@ const projects = [
 export default function ProjectDetails() {
     const { id } = useParams()
     const project = projects[Number(id)]
-
-    if (!project) {
-        return (
-            <div className="mx-auto max-w-2xl px-4 py-24 text-center">
-                <h2 className="text-2xl font-bold mb-4">Project Not Found</h2>
-            </div>
-        )
-    }
-
+console.log(id)
     return (
         <section className="relative min-h-screen py-20 px-4 bg-slate-950 text-slate-100 overflow-hidden">
             <motion.div
