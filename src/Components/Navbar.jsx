@@ -71,6 +71,7 @@ export default function Navbar() {
       <div className="mx-auto max-w-5xl">
         <div className="relative p-[1.5px] rounded-full bg-gradient-to-r from-indigo-400/80 via-violet-500/80 to-rose-500/80 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)]">
           <div className="flex items-center justify-between rounded-full bg-slate-900/70 backdrop-blur-xl px-4 sm:px-6 py-2.5 ring-1 ring-white/10">
+            {/* Logo */}
             <Link
               to="/"
               className="group w-11 h-11 overflow-hidden rounded-full ring-1 ring-white/15 hover:ring-white/30 transition-all duration-300"
@@ -82,6 +83,12 @@ export default function Navbar() {
               />
             </Link>
 
+            {/* Name for mobile */}
+            <span className="md:hidden flex-1 text-center font-extrabold text-xl bg-gradient-to-r from-indigo-400 via-violet-400 to-rose-400 bg-clip-text text-transparent tracking-wider select-none">
+              Rifat Rahman
+            </span>
+
+            {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-1 rounded-full bg-white/5 px-2 py-1 ring-1 ring-white/10">
               {navLinks.map((item) => (
                 isSection(item.to) ? (

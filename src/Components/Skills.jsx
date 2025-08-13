@@ -3,7 +3,6 @@ import { SiTailwindcss, SiExpress, SiMongodb, SiFramer, SiFirebase } from 'react
 import { BiLogoVisualStudio } from "react-icons/bi";
 import { motion } from 'framer-motion'
 
-// Skill data
 const skillCategories = [
     {
         title: "Frontend",
@@ -56,24 +55,24 @@ export default function Skills() {
             </motion.div>
 
             {/* Skills Grid */}
-            <div className="mx-auto max-w-5xl grid gap-8 md:grid-cols-3">
+            <div className="mx-auto max-w-5xl grid gap-8 p-2 md:grid-cols-3">
                 {skillCategories.map((cat, idx) => (
                     <motion.div
                         key={cat.title}
                         initial={{ opacity: 0, y: 32 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: idx * 0.08, type: 'spring' }}
+                        transition={{ duration: 0.6, type: 'spring' }}
                         className={`
-              group rounded-2xl p-6 md:p-8 border shadow-2xl
+              group rounded-2xl p-6 md:p-8 border
               bg-slate-900/80 border-white/10
               backdrop-blur-lg
-              hover:shadow-3xl transition-all duration-300
+              shadow-lg
+              transition-all duration-200
               relative
-              before:absolute before:inset-0 before:rounded-2xl before:bg-white/5 before:opacity-0 group-hover:before:opacity-100 before:transition
             `}
                         style={{
-                            boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.18), 0 1.5px 8px 0 rgba(80, 0, 120, 0.10)",
+                            boxShadow: "0 2px 8px 0 #818cf8, 0 1.5px 8px 0 rgba(80,0,120,0.08)",
                             borderWidth: 1.5,
                         }}
                     >
@@ -82,26 +81,26 @@ export default function Skills() {
                         </h3>
                         <div className="grid grid-cols-3 gap-y-6 justify-items-center">
                             {cat.skills.map((skill) => (
-                                <div key={skill.name} className="flex flex-col items-center">
+                                <div key={skill.name} className="flex flex-col items-center group/icon">
                                     <span
-                                        className="
+                                        className={`
                       inline-flex items-center justify-center
                       text-4xl mb-2
                       border border-white/20
                       rounded-xl
-                      shadow-lg
+                      shadow
                       bg-slate-800/60
                       transition
                       duration-200
                       ease-in-out
                       cursor-pointer
-                      hover:scale-105
+                      group-hover/icon:scale-105
                       focus-visible:scale-105
-                      hover:border-violet-400
-                      hover:shadow-violet-400/30
+                      group-hover/icon:border-violet-400
+                      group-hover/icon:shadow-[0_0_16px_2px_#818cf8]
                       active:scale-95
                       p-3
-                    "
+                    `}
                                         tabIndex={0}
                                         aria-label={skill.name}
                                     >

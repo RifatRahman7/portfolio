@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { FaGithub, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa'
-
+import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa'
+import { TypeAnimation } from 'react-type-animation'
 const PHOTO_URL = 'https://iili.io/FQLWpwJ.jpg'
 
 // Replace these with your actual profile URLs
@@ -38,7 +38,6 @@ export default function Intro() {
                         transition={{ duration: 0.6 }}
                         className="text-center md:text-left"
                     >
-                        {/* Modern designation pill */}
                         <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10 backdrop-blur">
                             <span className="h-2 w-2 rounded-full bg-gradient-to-r from-indigo-400 via-violet-400 to-rose-400" />
                             <span className="text-[18px] lg:text-[20px] font-semibold tracking-widest uppercase">
@@ -48,8 +47,21 @@ export default function Intro() {
 
                         {/* Name */}
                         <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                            Hi, I’m <br /> <span className="bg-gradient-to-r from-indigo-300 via-violet-300 to-rose-300 bg-clip-text text-transparent">Md Rifat Rahman</span>
+                            Hi, I’m <br />
+                            <span className="bg-gradient-to-r from-indigo-300 via-violet-300 to-rose-300 bg-clip-text text-transparent">
+                                <TypeAnimation
+                                    sequence={[
+                                        'Md Rifat Rahman', 1500, 
+                                        '', 500,                 
+                                    ]}
+                                    wrapper="span"
+                                    speed={50}
+                                    repeat={Infinity}
+                                    style={{ display: 'inline-block' }}
+                                />
+                            </span>
                         </h1>
+
 
                         {/* Tagline */}
                         <p className="mt-3 text-xl font-bold text-slate-300">

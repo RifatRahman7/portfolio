@@ -6,7 +6,7 @@ import Skills from './Skills';
 import Education from './Education';
 import Contact from './Contact';
 import Projects from './Project';
-import ProjectDetails from './ProjectDetails';
+import Footer from './Footer';
 const Home = () => {
     return (
         <div>
@@ -29,6 +29,7 @@ const Home = () => {
             <section id="contact">
                 <Contact />
             </section>
+            <Footer />
         </div>
     );
 };

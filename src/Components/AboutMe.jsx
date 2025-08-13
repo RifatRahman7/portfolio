@@ -119,15 +119,15 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.08, type: 'spring' }}
               className={`
-                group rounded-2xl p-6 md:p-8 border shadow-xl
+                group rounded-2xl p-6 md:p-8 border shadow-lg
                 bg-gradient-to-br ${card.gradient} ${card.border}
                 backdrop-blur-lg
-                hover:scale-[1.025] hover:shadow-2xl transition-all duration-300
+                transition-all duration-300
                 relative
                 before:absolute before:inset-0 before:rounded-2xl before:bg-white/5 before:opacity-0 group-hover:before:opacity-100 before:transition
               `}
               style={{
-                boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.18), 0 1.5px 8px 0 rgba(80, 0, 120, 0.10)",
+                boxShadow: "0 2px 8px 0 #818cf8, 0 1.5px 8px 0 rgba(80,0,120,0.08)",
                 borderWidth: 1.5,
               }}
             >

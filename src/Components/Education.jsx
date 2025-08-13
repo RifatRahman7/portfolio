@@ -20,7 +20,7 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" className="relative py-10 px-4 bg-slate-950 text-slate-100 overflow-hidden roboto">
+    <section id="education" className="relative p-6 bg-slate-950 text-slate-100 overflow-hidden roboto">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -45,15 +45,17 @@ export default function Education() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, type: 'spring', delay: idx * 0.1 }}
             className={`
-              group rounded-2xl p-6 md:p-8 border shadow-2xl
+              group rounded-2xl p-6 md:p-8 border
               bg-slate-900/80 border-white/10
               backdrop-blur-lg
-              hover:scale-[1.025] hover:shadow-3xl transition-all duration-300
+              shadow-lg hover:shadow-2xl
+              hover:scale-[1.025] transition-all duration-300
               relative
               before:absolute before:inset-0 before:rounded-2xl before:bg-white/5 before:opacity-0 group-hover:before:opacity-100 before:transition
             `}
             style={{
-              boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.18), 0 1.5px 8px 0 rgba(80, 0, 120, 0.10)",
+              // Custom shadow for more depth
+              boxShadow: "0 6px 24px 0 rgba(0,0,0,0.13), 0 1.5px 8px 0 rgba(80,0,120,0.08)",
               borderWidth: 1.5,
             }}
           >
