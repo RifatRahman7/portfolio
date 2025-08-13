@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa'
+import { FiDownload } from 'react-icons/fi'
 import { TypeAnimation } from 'react-type-animation'
 const PHOTO_URL = 'https://iili.io/FQLWpwJ.jpg'
 
-// Replace these with your actual profile URLs
 const SOCIALS = [
     {
         icon: <FaGithub />,
@@ -62,7 +62,6 @@ export default function Intro() {
                             </span>
                         </h1>
 
-
                         {/* Tagline */}
                         <p className="mt-3 text-xl font-bold text-slate-300">
                             I build fast, accessible interfaces for the modern web.
@@ -72,8 +71,6 @@ export default function Intro() {
                         <p className="mt-3 text-slate-300 text-lg max-w-xl mx-auto md:mx-0">
                             Skilled in frontend development with HTML, CSS, JavaScript, React, and Tailwind CSS.
                             Experienced in the MERN stack for building robust full-stack web applications.
-
-
                         </p>
 
                         {/* Social Links */}
@@ -90,6 +87,18 @@ export default function Intro() {
                                     {s.icon}
                                 </a>
                             ))}
+                        </div>
+
+                        {/* Resume Download Button */}
+                        <div className="mt-6 flex justify-center md:justify-start">
+                            <a
+                                href="/resume.pdf"
+                                download
+                                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-rose-500 px-6 py-2.5 text-base font-semibold text-white shadow-lg hover:shadow-rose-500/30 hover:-translate-y-0.5 transition cursor-pointer"
+                            >
+                                <FiDownload className="text-lg" />
+                                Download Resume
+                            </a>
                         </div>
                     </motion.div>
 
