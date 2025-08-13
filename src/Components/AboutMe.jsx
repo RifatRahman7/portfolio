@@ -1,5 +1,6 @@
 import { FaUserGraduate, FaRegSmile, FaCode, FaMusic, FaFilm, FaVolleyballBall } from 'react-icons/fa'
 import { MdSportsCricket, MdSportsTennis } from 'react-icons/md'
+import { FaMapMarkerAlt } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
 // Reusable animated grid background
@@ -88,7 +89,7 @@ const aboutCards = [
 
 export default function About() {
   return (
-    <section id="about" className="relative py-7 bg-slate-950 text-slate-100 overflow-hidden">
+    <section id="about" className="relative py-7 bg-slate-950 text-slate-100 overflow-hidden roboto">
       <GridBackground />
       <div className="mx-auto max-w-4xl relative z-10">
         <motion.div
@@ -106,6 +107,10 @@ export default function About() {
           </div>
           <p className="text-lg leading-relaxed max-w-2xl mx-auto">
             Hi, I’m <span className="font-semibold text-indigo-200 roboto">Md Rifat Rahman</span> — CSE student at Tejgaon College, Dhaka (National University). I focus on frontend development, creating fast, accessible, and user-friendly web interfaces.
+            <span className="block mt-3 flex items-center justify-center gap-2 text-base text-slate-400 font-medium">
+              <FaMapMarkerAlt className="text-rose-400" />
+              Dhaka, Bangladesh
+            </span>
           </p>
         </motion.div>
 

@@ -28,6 +28,9 @@ export default function Footer() {
             Md Rifat Rahman
           </span>
           <span className="block text-slate-400 text-sm mt-1">
+            Dhaka, Bangladesh
+          </span>
+          <span className="block text-slate-500 text-xs mt-1">
             &copy; {new Date().getFullYear()} All rights reserved.
           </span>
         </div>

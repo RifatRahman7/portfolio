@@ -1,5 +1,5 @@
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGithub, FaGitAlt, FaFigma } from 'react-icons/fa'
-import { SiTailwindcss, SiExpress, SiMongodb, SiFramer, SiFirebase } from 'react-icons/si'
+import { SiTailwindcss, SiExpress, SiMongodb, SiFramer, SiFirebase, SiVercel, SiNetlify } from 'react-icons/si'
 import { BiLogoVisualStudio } from "react-icons/bi";
 import { motion } from 'framer-motion'
 
@@ -27,10 +27,12 @@ const skillCategories = [
     {
         title: "Tools",
         skills: [
-            { name: "Git", icon: <FaGitAlt className="text-orange-500" /> },
             { name: "GitHub", icon: <FaGithub className="text-white" /> },
+            { name: "Git", icon: <FaGitAlt className="text-orange-500" /> },           
             { name: "VS Code", icon: <BiLogoVisualStudio className="text-blue-400" /> },
             { name: "Figma", icon: <FaFigma className="text-pink-400" /> },
+            { name: "Vercel", icon: <SiVercel className="text-white" /> },
+            { name: "Netlify", icon: <SiNetlify className="text-emerald-400" /> },
         ],
     },
 ]
