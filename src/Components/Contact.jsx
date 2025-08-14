@@ -1,7 +1,33 @@
+import { useRef, useState } from 'react'
 import { FaEnvelope, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa'
 import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 
 export default function Contact() {
+  const form = useRef();
+  const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  // Replace with your actual EmailJS values
+  const SERVICE_ID = 'service_3k45nj5';
+  const TEMPLATE_ID = 'template_40go5su';
+  const PUBLIC_KEY = 'oIwybkuoq_mhq9c9I';
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+      .then(() => {
+        setSent(true);
+        setLoading(false);
+        form.current.reset();
+        setTimeout(() => setSent(false), 4000);
+      }, () => {
+        setLoading(false);
+        alert("Failed to send. Please try again.");
+      });
+  };
+
   return (
     <section id="contact" className="relative py-20 px-4 bg-slate-950 text-slate-100 overflow-hidden">
       <motion.div
@@ -15,11 +41,57 @@ export default function Contact() {
           Contact
         </h2>
         <p className="text-lg text-slate-300 mt-2">
-          Feel free to reach out directly!
+          Feel free to reach out directly or send me a message!
         </p>
       </motion.div>
 
-      <div className="mx-auto max-w-xl flex flex-col gap-8">
+      {/* Contact Form */}
+      <div className="mx-auto max-w-xl mb-12 p-2">
+        <form
+          ref={form}
+          onSubmit={sendEmail}
+          className="rounded-2xl bg-white/10 border border-white/10 backdrop-blur-lg shadow-xl p-8 flex flex-col gap-5 relative overflow-hidden"
+        >
+          <div className="pointer-events-none absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-indigo-400/30 via-violet-400/20 to-rose-400/20 blur-[2px] opacity-70" />
+          <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-indigo-300 via-violet-300 to-rose-300 bg-clip-text text-transparent z-10 relative">
+            Send me a message
+          </h3>
+          <input
+            type="text"
+            name="user_name"
+            required
+            placeholder="Your Name"
+            className="rounded-lg bg-white/10 border border-white/10 px-4 py-2 text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition z-10 relative"
+          />
+          <input
+            type="email"
+            name="user_email"
+            required
+            placeholder="Your Email"
+            className="rounded-lg bg-white/10 border border-white/10 px-4 py-2 text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition z-10 relative"
+          />
+          <textarea
+            name="message"
+            required
+            placeholder="Your Message"
+            rows={4}
+            className="rounded-lg bg-white/10 border border-white/10 px-4 py-2 text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition z-10 relative"
+          />
+          <button
+            type="submit"
+            disabled={loading}
+            className="mt-2 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-rose-500 px-6 py-2.5 text-base font-semibold text-white shadow-lg hover:shadow-indigo-400/30 hover:-translate-y-0.5 hover:scale-105 transition cursor-pointer z-10 relative"
+          >
+            {loading ? "Sending..." : "Send Message"}
+          </button>
+          {sent && (
+            <span className="text-green-400 text-sm mt-2 z-10 relative">Message sent! I’ll get back to you soon.</span>
+          )}
+        </form>
+      </div>
+
+      {/* Contact Info Cards */}
+      <div className="mx-auto max-w-xl flex flex-col gap-8 p-2">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
