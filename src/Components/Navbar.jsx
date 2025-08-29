@@ -127,7 +127,7 @@ export default function Navbar() {
 
             <div className="flex items-center gap-2">
               <a
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/1hEcZ52ekgvq71XAgVG52fpbpoTRRQHe1/view?usp=sharing" target="_blank" rel="noopener noreferrer"
                 download
                 className="hidden md:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-rose-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-indigo-500/20 hover:shadow-rose-500/30 hover:-translate-y-0.5 transition"
               >
@@ -194,12 +194,12 @@ export default function Navbar() {
                         )
                       ))}
                       <a
-                        href="/resume.pdf"
+                        href="https://drive.google.com/file/d/1hEcZ52ekgvq71XAgVG52fpbpoTRRQHe1/view?usp=sharing" target="_blank" rel="noopener noreferrer"
                         download
                         onClick={() => setMenuOpen(false)}
                         className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 via-violet-500 to-rose-500 px-4 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 hover:shadow-rose-500/30 transition"
                       >
-                        <FiDownload /> Download Resume
+                        <FiDownload />Resume
                       </a>
                     </div>
                   </div>

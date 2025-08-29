@@ -92,7 +92,7 @@ export default function Intro() {
                         {/* Resume Download Button */}
                         <div className="mt-6 flex justify-center md:justify-start">
                             <a
-                                href="/resume.pdf"
+                                href="https://drive.google.com/file/d/1hEcZ52ekgvq71XAgVG52fpbpoTRRQHe1/view?usp=sharing" target="_blank" rel="noopener noreferrer"
                                 download
                                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-rose-500 px-6 py-2.5 text-base font-semibold text-white shadow-lg hover:shadow-rose-500/30 hover:-translate-y-0.5 transition cursor-pointer"
                             >
